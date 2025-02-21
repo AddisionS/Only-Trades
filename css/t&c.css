@@ -1,0 +1,119 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1E2A3A; /* Deep charcoal gray */
+    color: #FFFFFF; /* Clean white */
+    line-height: 1.6;
+}
+
+/* Navbar */
+nav {
+    background-color: #1E2A3A;
+    padding: 1rem;
+    border-bottom: 1px solid #8A9BA8; /* Soft gray border */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    height: 50px; /* Adjust based on your logo size */
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    color: #FFFFFF; /* White text for links */
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav ul li a:hover, .signup-btn {
+    color: #4A90E2; /* Muted teal for hover and Sign Up button */
+}
+
+.signup-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+/* Main Container */
+.main-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Terms Section */
+.terms {
+    padding: 2rem 0;
+}
+
+.terms h1 {
+    font-size: 2.5rem;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+}
+
+.terms p {
+    font-size: 1rem;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+}
+
+.terms h2 {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.terms a {
+    color: #4A90E2; /* Muted teal for links */
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #1E2A3A;
+    padding: 1rem;
+    text-align: center;
+    border-top: 1px solid #8A9BA8; /* Soft gray border */
+    color: #8A9BA8; /* Soft gray text */
+    margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Hide nav on small screens for simplicity; add a hamburger menu if needed */
+    }
+
+    .terms h1 {
+        font-size: 2rem;
+    }
+
+    .terms h2 {
+        font-size: 1.2rem;
+    }
+}

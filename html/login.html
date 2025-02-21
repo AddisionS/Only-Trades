@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../assets/logo.png" type="image/x-icon">
+    <title>Login / Signup - OnlyTrades</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1E2A3A; /* Deep charcoal gray */
+            color: #FFFFFF; /* Clean white */
+            margin: 0;
+        }
+        .container {
+            background: #2C3A4B; /* Slightly darker background for contrast */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        input {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #8A9BA8; /* Soft gray border */
+            border-radius: 5px;
+            background: #1E2A3A; /* Same as background to blend in */
+            color: #FFFFFF;
+        }
+        input:focus {
+            border-color: #4A90E2; /* Muted teal when focused */
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4A90E2; /* Muted teal for button */
+            border: none;
+            color: #FFFFFF;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #357ABD; /* Slightly darker shade on hover */
+        }
+        .switch {
+            color: #4A90E2; /* Muted teal for interactive elements */
+            cursor: pointer;
+        }
+        .switch:hover {
+            text-decoration: underline;
+        }
+        #showPassword {
+            margin: 10px 0;
+            color: #8A9BA8; /* Soft gray for checkbox label */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 id="formTitle">Login to OnlyTrades</h2>
+        
+        <input type="text" id="username" placeholder="Enter username">
+        <input type="password" id="password" placeholder="Enter password">
+        
+        <div>
+            <input type="checkbox" id="showPassword"> <label for="showPassword" style="color: #8A9BA8;">Show Password</label>
+        </div>
+        
+        <button id="authButton" onclick="authenticate()">Login</button>
+        <p class="switch" onclick="toggleForm()">Don't have an account? Sign up</p>
+    </div>
+
+    <script>
+        let isLogin = true; // Track if we are in login mode
+
+        function toggleForm() {
+            isLogin = !isLogin;
+            document.getElementById("formTitle").innerText = isLogin ? "Login to OnlyTrades" : "Sign Up for OnlyTrades";
+            document.getElementById("authButton").innerText = isLogin ? "Login" : "Sign Up";
+            document.querySelector(".switch").innerText = isLogin ? "Don't have an account? Sign up" : "Already have an account? Login";
+        }
+
+        document.getElementById("showPassword").addEventListener("change", function() {
+            let passwordInput = document.getElementById("password");
+            passwordInput.type = this.checked ? "text" : "password";
+        });
+
+        function authenticate() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (!username || !password) {
+                alert("Please enter a valid username and password!");
+                return;
+            }
+
+            if (isLogin) {
+                // LOGIN FUNCTIONALITY
+                let storedUser = JSON.parse(localStorage.getItem(username));
+
+                if (storedUser && storedUser.password === password) {
+                    localStorage.setItem("user", username); // Mark user as logged in
+                    window.location.href = "../index.html"; // Redirect to homepage
+                } else {
+                    alert("Invalid username or password!");
+                }
+            } else {
+                // SIGNUP FUNCTIONALITY
+                if (localStorage.getItem(username)) {
+                    alert("Username already exists! Try logging in.");
+                    return;
+                }
+
+                let userData = { username, password, balance: 1000 }; // New user starts with 1000 coins
+                localStorage.setItem(username, JSON.stringify(userData));
+                localStorage.setItem("user", username); // Auto-login after signup
+                window.location.href = "../index.html"; // Redirect to homepage
+            }
+        }
+
+        // Redirect if already logged in
+        if (localStorage.getItem("user")) {
+            window.location.href = "../index.html";
+        }
+    </script>
+
+</body>
+</html>

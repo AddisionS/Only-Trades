@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlyTrades Testimonials</title>
+    <link rel="stylesheet" href="../css/testimonials.css"> <!-- Link to external CSS -->
+    <link rel="icon" href="../assets/logo.png" type="image/x-icon">
+
+</head>
+<body>
+    <div class="container">
+        <h1>WHAT <span>TRADING LEADERS & USERS</span> SAY ABOUT ONLYTRADES</h1>
+        <p class="description">
+            From high-rollers to everyday traders, OnlyTrades empowers everyone in the trading community with Daddy Dollars ($DAD).
+        </p>
+
+        <div class="testimonials" role="region" aria-label="Testimonials">
+            <div class="testimonial-card">
+                <img src="../assets/brian.jpeg" alt="Brian Armstrong, CEO of Coinbase" > 
+                <h3>Brian Armstrong</h3>
+                <p>As the CEO of Coinbase, I’ve seen countless trading platforms, but OnlyTrades stands out with its innovative approach to Daddy Dollars ($DAD). The platform’s tools make tracking and trading $DAD a <span class="highlight">breeze</span>, offering real-time insights that have revolutionized my crypto trading strategy. The user-friendly interface and low fees have made it a must-have for anyone serious about crypto, and I’ve personally doubled my investments using OnlyTrades’ features over the past year.</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="../assets/maya patel.jpg" alt="Maya Patel, Digital Trader">
+                <h3>Maya Patel</h3>
+                <p>As a digital trader with over five years of experience, I’ve found OnlyTrades to be a game-changer for managing my portfolio with Daddy Dollars ($DAD). I love how the platform allows me to trade directly with $DAD, cutting out middlemen and giving me pure control over my profits. The intuitive dashboard and real-time market updates have helped me maximize returns, and the low transaction fees mean I keep more of my earnings. It’s truly transformed my trading power, making it my go-to platform for high-stakes trading.</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="../assets/buterin.jpeg" alt="Vitalik Buterin, Co-founder of Ethereum">
+                <h3>Vitalik Buterin</h3>
+                <p>As the co-founder of Ethereum, I’m deeply invested in decentralized platforms, and OnlyTrades’ approach to trading Daddy Dollars ($DAD) is a solid step toward empowering traders with decentralized wealth. The platform’s decentralized model ensures transparency and security, which I value highly, while its intuitive tools allow me to monitor $DAD trends effortlessly. Over the past six months, I’ve used OnlyTrades to explore new trading strategies, and its low-cost structure has made it a standout choice for building a future where traders own their financial ecosystems.</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="../assets/jake.jpg" alt="Jake Summers, $DAD Collector">
+                <h3>Jake Summers</h3>
+                <p>I’m just a regular guy who loves trading Daddy Dollars ($DAD), and OnlyTrades has made it so easy for me to get started. The platform’s simple interface lets me jump right into trading without any hassle, and the low fees mean I can keep more of my profits. I’ve been collecting $DAD for over a year, and OnlyTrades’ real-time updates and secure transactions have kept me coming back every day. It’s the perfect place for someone like me to grow my portfolio without breaking the bank.</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="../assets/priya.jpeg" alt="Priya Khan, Trading Enthusiast">
+                <h3>Priya Khan</h3>
+                <p>As a trading enthusiast, I never imagined turning my passion into profits until I discovered OnlyTrades and Daddy Dollars ($DAD). Using the platform’s tools to predict $DAD movements was a <span class="highlight">game-changer</span> for me—I’ve built a portfolio worth thousands by leveraging its real-time insights and low-cost trades. The community support and easy-to-use features have inspired me to take my trading to the next level, and now I’m making real money while enjoying the thrill of the market every day.</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="../assets/Changpeng Zhao.jpeg" alt="Changpeng Zhao, Trading Expert">
+                <h3>Changpeng Zhao</h3>
+                <p>With decades of experience in trading and finance, I can confidently say that OnlyTrades sets a new standard for transparency and efficiency in the trading space. The platform’s low royalties and clear pricing for Daddy Dollars ($DAD) make it a standout choice for high-rollers and everyday traders alike. I’ve used OnlyTrades to manage millions in trades, and its secure, user-friendly design has kept my operations smooth and profitable, making it an essential tool for anyone in the trading industry.</p>
+            </div>
+        </div>
+
+        <div class="dots" role="navigation" aria-label="Testimonial scroll navigation">
+            <span class="dot active" onclick="scrollToTestimonial(0)"></span>
+            <span class="dot" onclick="scrollToTestimonial(1)"></span>
+            <span class="dot" onclick="scrollToTestimonial(2)"></span>
+            <span class="dot" onclick="scrollToTestimonial(3)"></span>
+            <span class="dot" onclick="scrollToTestimonial(4)"></span>
+            <span class="dot" onclick="scrollToTestimonial(5)"></span>
+        </div>
+    </div>
+
+    <script>
+        const testimonials = document.querySelector('.testimonials');
+        const dots = document.querySelectorAll('.dot');
+
+        function scrollToTestimonial(index) {
+            const cardWidth = testimonials.querySelector('.testimonial-card').offsetWidth + 25; // Include gap
+            testimonials.scrollTo({
+                left: cardWidth * index,
+                behavior: 'smooth'
+            });
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+        }
+
+        // Update active dot dynamically based on scroll position
+        testimonials.addEventListener('scroll', () => {
+            const cardWidth = testimonials.querySelector('.testimonial-card').offsetWidth + 25;
+            const scrollPosition = testimonials.scrollLeft;
+            const activeIndex = Math.round(scrollPosition / cardWidth);
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === activeIndex));
+        });
+    </script>
+</body>
+</html>

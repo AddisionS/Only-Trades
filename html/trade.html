@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlyTrades - Trade Daddy Dollars</title>
+    <link rel="stylesheet" href="../css/trade.css">
+    <link rel="icon" href="../assets/logo.png" type="image/x-icon">
+
+</head>
+<body>
+
+    <div class="trade-container">
+        <!-- Left Section: Investment Panel -->
+        <div class="trade-info">
+            <h2>📊 Your Portfolio</h2>
+            <p><strong>💰 Daddy Dollars:</strong> <span id="balance">0</span></p>
+            <p><strong>📥 Invested:</strong> <span id="invested">0</span></p>
+            <p><strong>📈 Profit/Loss:</strong> <span id="profit-loss">0</span></p>
+
+            <div class="button-group">
+                <button id="buy-more">➕ Buy More</button>
+                <button id="withdraw">💸 Withdraw</button>
+                <button id="predict">📊 Predict</button>
+            </div>
+        </div>
+
+        <!-- Right Section: Graph -->
+        <div class="graph-container">
+            <h2>📉 Market Trends</h2>
+            <canvas id="marketGraph"></canvas>
+        </div>
+    </div>
+
+    <!-- Fake Razorplay Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <h2>💳 Razorplay™ Checkout</h2>
+            <p>Secure your Daddy Dollars now</p>
+            <input type="number" id="payment-amount" placeholder="Enter amount" min="1">
+            <button id="pay-now">💵 Pay Now</button>
+            <button id="close-payment">❌ Cancel</button>
+            <div id="payment-status"></div>
+        </div>
+    </div>
+    
+    <div id="withdraw-modal" class="modal">
+        <div class="modal-content">
+            <h2>💳 Razorplay™ Checkout</h2>
+            <p>Cash in your Daddy Dollars now</p>
+            <button id="upi">UPI</button>
+            <button id="net-banking">Net Banking</button>
+            <button id="close-payment-w">❌ Cancel</button>
+            <div id="payment-status"></div>
+        </div>
+    </div>
+
+    <!-- Prediction Modal -->
+    <div id="prediction-modal" class="modal">
+        <div class="modal-content">
+            <h2>📈 Predict Market Movement</h2>
+            <input type="number" id="investment-amount" placeholder="Amount to Invest" min="1">
+            <button id="predict-up">📈 Up</button>
+            <button id="predict-down">📉 Down</button>
+            <button id="close-prediction">❌ Cancel</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/trade.js"></script>
+</body>
+</html>
